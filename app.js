@@ -5,7 +5,7 @@ let CRYPTOCOMPARE_API_URI = "https://min-api.cryptocompare.com";
 let COINMARKETCAP_API_URI = "https://api.coinmarketcap.com";
 
 // Images path
-let IMAGE_PATH = "https://cryptocompare.com";
+let CRYPTO_COMPARE = "https://cryptocompare.com";
 
 // The amount of milliseconds (ms) after which we should update
 let UPDATE_INTERVAL = 60 * 1000;
@@ -76,10 +76,18 @@ let app = new Vue({
       let imageUrl = this.coinData[symbol].ImageUrl;
 
       if (imageUrl != null) {
-        return IMAGE_PATH + this.coinData[symbol].ImageUrl;
+        return CRYPTO_COMPARE + this.coinData[symbol].ImageUrl;
       } else {
         return "ajax-loader.gif";
       }
+    },
+
+
+    /**
+     * Method that returns CryptoCompare URL for given coin
+     */
+    getCoinUrl: function(symbol) {
+      return CRYPTO_COMPARE + "/coins/" + symbol;
     },
     
     /**

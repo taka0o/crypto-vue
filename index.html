@@ -43,7 +43,10 @@
             <tbody>
               <tr v-for="coin in orderCoins">
                   <td>{{ coin.rank }}</td>
-                  <td><img v-bind:src="getCoinImage(coin.symbol)" class="img-thumbnail" width="48"> {{ coin.name }}</td>
+                  <td>
+                    <img v-bind:src="getCoinImage(coin.symbol)" class="img-thumbnail" width="48"> 
+                    <a v-bind:href="getCoinUrl(coin.symbol)" target="_blank">{{ coin.name }}</a>
+                  </td>
                   <td>{{ coin.symbol }}</td>
                   <td>{{ coin.quotes.USD.price | currency }}</td>
                   <td v-bind:style="getColor(coin.quotes.USD.percent_change_1h)">
