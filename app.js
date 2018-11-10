@@ -71,14 +71,14 @@ let app = new Vue({
      */
     getCoinImage: function(symbol) {
 
-      if (this.coinData[symbol] == null) { return "No_Image_Available.png"; }
+      if (this.coinData[symbol] == null) { return "/img/no_image.png"; }
       
       let imageUrl = this.coinData[symbol].ImageUrl;
 
       if (imageUrl != null) {
         return CRYPTO_COMPARE + this.coinData[symbol].ImageUrl;
       } else {
-        return "ajax-loader.gif";
+        return "/img/no_image.png";
       }
     },
 
